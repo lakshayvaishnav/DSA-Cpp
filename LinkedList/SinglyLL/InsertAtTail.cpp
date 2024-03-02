@@ -15,16 +15,12 @@ class Node{
 };
 
 
-void InsertAtTail(Node * & head, int data){
-	//first traverse and fint the last node....
-	Node * LastNode = head;
-	while (LastNode -> next != NULL){
-		LastNode = LastNode -> next;
+void InsertAtTail(Node * & tail, int data){
+	Node * lastNode = new Node(data);
 
-	}
-	Node * newNode = new Node(data);
-	LastNode -> next = newNode;  //adding the last node...
-	cout << "node " << newNode-> data  << " inserted at tail" <<  endl;
+	tail -> next = lastNode;
+	tail  = lastNode;
+
 }
 
 void printLL (Node * &head){
@@ -42,8 +38,9 @@ int main(){
 	cout << "first node is : "<< node1 -> data << endl; 
 
 	Node * head = node1;
-	InsertAtTail(head,44);
-	InsertAtTail(head, 69);
+	Node * tail = node1;
+	InsertAtTail(tail,44);
+	InsertAtTail(tail, 69);
 	printLL(head);
 
 	return 0;
