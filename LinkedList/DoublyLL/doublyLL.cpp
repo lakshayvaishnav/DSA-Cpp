@@ -32,18 +32,27 @@ void InsertNodeAtHead(Node * &head , int value){
 
 }
 
+void InsertAtTail(Node * &tail, int value){
+	Node * temp = new Node(value);
+	tail -> next = temp;
+	temp -> prev = tail;
+	tail = temp;
+
+}
 
 
 int main(){
 
 	Node * node1 = new Node(23);
 	Node * head = node1;
+	Node * tail = node1;
 	printLL(head);
 
 	InsertNodeAtHead(head,24);
 	InsertNodeAtHead(head,26);
 	InsertNodeAtHead(head,27);
 	InsertNodeAtHead(head,28);
+	InsertAtTail(tail,69);
 	printLL(head);
 
 }
