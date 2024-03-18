@@ -47,7 +47,39 @@ void insertNode(Node * &tail, int element , int data){
 	}	
 }
 
+void deleteNode(Node * &tail,int element){
+	//empy list
+	if(tail == NULL){
+		cout << "list is empty nothing to delete "<< endl;
+	}
+	else {
+		// non - empty
+		//assuming the element is present
+		Node * prev = tail;
+		Node * curr = tail -> next;
+		while(curr-> data !=  element){
+			prev = curr;
+			curr = curr -> next;
+		}
+
+		// for one node;
+		if(curr == prev){
+			tail = NULL;
+
+		}
+		if(tail == curr){
+			tail = prev;
+		}
+		prev -> next = curr -> next;
+		curr -> next = NULL;
+		delete curr;
+	}
+}
+
 void print(Node * &tail){
+	if(tail == NULL){
+		cout << "list is empty " << endl;
+	}
 
 	Node * temp = tail;
 	do{
@@ -62,10 +94,12 @@ int main(){
 
 	Node * tail  = NULL;
 	insertNode(tail,2,69);
-	print(tail);
-	insertNode(tail,69,70);
-	print(tail);
-	insertNode(tail,70,71);
+	// print(tail);
+	// insertNode(tail,69,70);
+	// print(tail);
+	// insertNode(tail,70,71);
+	// deleteNode(tail,69);
+	deleteNode(tail,69);
 	print(tail);
 
 
