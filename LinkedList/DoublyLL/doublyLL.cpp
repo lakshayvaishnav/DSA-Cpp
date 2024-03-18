@@ -13,6 +13,15 @@ public:
 		this -> next = NULL;
 		this -> prev = NULL;
 	}
+
+	~Node(){
+		int val = this -> data;
+		if(next != NULL){
+			delete next;
+			next = NULL;
+		}
+		cout << "memory is free for the data : " << val << endl;
+	}
 };
 
 void printLL(Node * &head ){
@@ -50,6 +59,16 @@ void insertAtPosition(Node * &head, int positon, int value ){
 	tempPtr -> next -> prev = newNode;
 	tempPtr ->next = newNode;
 	newNode -> prev =  tempPtr;
+}
+
+void deleteNode(Node * &head , int positon ){
+	if(positon == 1){
+		Node * temp = head;
+		temp -> next -> prev = NULL;
+		head = temp -> next;
+		temp -> next = NULL;
+		delete temp;
+	}
 }
 
 int main(){
