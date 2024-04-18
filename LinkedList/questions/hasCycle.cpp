@@ -26,8 +26,30 @@ public:
     }
 };
 
+class Solution{
+public:
+
+		bool hasCycle(Node * head){
+			Node * slow = head;
+			Node * fast = head;
+			while (fast != nullptr){
+				slow = slow -> next;
+				fast = fast -> next;
+				if(fast != nullptr){
+					fast = fast -> next;
+				}
+
+				if(fast == slow){
+					return true;
+				}
+			}
+			return false;
+		}
+}
+
 
 
 int main() {
+	
 
 }
