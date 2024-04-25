@@ -14,11 +14,7 @@ s.push("lakshay");
 
 
 
-for(string i : s){
-	cout << i <<"  ";
-}
-
 cout << "top element : " << s.top() << endl;
 
-	// return 0;
+	return 0;
 }
