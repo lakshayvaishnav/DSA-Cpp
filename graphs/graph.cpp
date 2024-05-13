@@ -57,6 +57,7 @@ int main() {
 	}
 
 	cout << "--------------------" << endl;
+	cout << "adjency list for the graph " << endl;
 
 	// printing graph
 	g.printAdjList();
