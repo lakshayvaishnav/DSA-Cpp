@@ -1,9 +1,25 @@
 #include <iostream>
+#include <climits>
 using namespace std;
 
 
 
+void largestRowSum(int arr[][3], int row , int col) {
+	int maxi = INT_MIN;
+	int rowindex = -1;
+		for(int row = 0; row<3; row++){
+			int sum = 0;
+		for (int col = 0; col<3; col++){
+				sum += arr[row][col];
+		}
 
+		if(sum > maxi){
+			maxi = sum;
+			rowindex = row;
+		}
+	}
+	cout << "the maximum sum is " << maxi << " at row " << rowindex+1  << endl;
+}
 
 
 int main () {
@@ -33,6 +49,9 @@ int main () {
 		}
 		cout << endl;
 	}
+
+cout << "largest row sum function running : - " << endl;
+	largestRowSum(arr,3,3);
 
 
 
